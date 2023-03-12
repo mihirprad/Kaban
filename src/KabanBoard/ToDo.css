@@ -1,0 +1,10 @@
+.to-do-item {
+    background-color: bisque;
+    height: 100px;
+    width: 100%;
+}
+
+#to-do-board{
+    grid-column: 1;
+    overflow: hidden;
+}
