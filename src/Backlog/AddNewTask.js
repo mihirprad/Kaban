@@ -9,8 +9,10 @@ export default function AddNewTask(){
 
     const clickHandler = (event) =>{
         //send data to back end
+        setNewTask("");
     }
     return (<>
+        <div>Add new task</div>
         <input value = {newTask} onChange={inputChangeHandler}/>
         <button onClick = {clickHandler}>Add</button>
     </>)

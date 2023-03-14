@@ -6,8 +6,8 @@ export default function App(){
 
     return(
     <TasksContext.Provider>    
-        <KabanBoard />
         <AddNewTask />
+        <KabanBoard />
     </TasksContext.Provider>
     )
 }
