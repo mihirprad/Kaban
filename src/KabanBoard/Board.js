@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import './Board.css'
 import DragContext from './Store/draggable-context'
-export default function Board({items, id}){
+export default function Board({items, id,title}){
     let validDropTarget = false;
     let dragCtx = useContext(DragContext);
 
@@ -50,6 +50,7 @@ export default function Board({items, id}){
 
     return(
         <div id={id} className='drop-zone board' onDragOver={dragoverEvent} onDragLeave = {dragLeaveEvent} onDrop = {dropEvent}>
+            <h4 className='board-title'>{title}</h4>
             {items}
         </div>
     )

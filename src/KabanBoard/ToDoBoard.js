@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ToDo.css';
+import './ToDoBoard.css';
 import toDoItems from './toDoItems.json'
 import Board from './Board'
 import DraggableItem from './DraggableItem';
@@ -14,6 +14,6 @@ export default function ToDoBoard() {
   }, []);
 
   return (
-    <Board items={toDoList} id = "to-do-board"/>
+    <Board items={toDoList} id = "to-do-board" title="To do list"/>
   );
 }
