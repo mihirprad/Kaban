@@ -14,6 +14,6 @@ export default function ToDoBoard() {
   }, []);
 
   return (
-    <Board items={toDoList} id = "to-do-board"/>
+    <Board items={toDoList} id = "to-do-board" title="To do list"/>
   );
 }
