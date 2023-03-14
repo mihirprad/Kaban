@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ToDo from './ToDo'
+import ToDoBoard from './ToDoBoard'
 import InProgressBoard from "./InProgressBoard";
 import DragContext from './Store/draggable-context'
 import './KabanBoard.css'
@@ -10,7 +10,7 @@ export default function KabanBoard() {
     return (<>
         <DragContext.Provider value={DragState}>
             <div id = "kaban-board">
-                <ToDo />
+                <ToDoBoard />
                 <InProgressBoard />
             </div>
         </DragContext.Provider>
