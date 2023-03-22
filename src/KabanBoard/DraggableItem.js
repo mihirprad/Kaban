@@ -4,7 +4,8 @@ export default function DraggableItem({ index, item, classAttr }) {
 
     const dragCtx = useContext(DragContext);
     const dragStart = (event) => {
-        dragCtx.setDraggedItem(event.currentTarget)
+        dragCtx.setDraggedItem(event.currentTarget);
+        event.dataTransfer.setData("draggedItem", item)
     }
     let className = "draggable ";
 
