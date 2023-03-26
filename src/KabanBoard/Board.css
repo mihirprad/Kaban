@@ -1,6 +1,7 @@
 .board{
     height: 100%;
-    border: 1px dashed black;
+    background-color: #f4f5f7;
+    border-radius: 8px;
 }
 
 .drop-zone{

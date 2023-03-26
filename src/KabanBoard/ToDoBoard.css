@@ -1,10 +1,12 @@
-.to-do-item {
-    background-color: bisque;
-    height: 100px;
+.to-do-item :hover {
+    background-color: black;
+    height: 100%;
     width: 100%;
 }
 
 #to-do-board{
     grid-column: 1;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
