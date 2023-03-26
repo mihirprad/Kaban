@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './ToDoBoard.css';
-import toDoItems from './toDoItems.json'
 import Board from './Board'
+import Constants from './constants';
+export default function ToDoBoard({toDoItems}) {
+  useEffect(()=>{
 
-export default function ToDoBoard() {
+  })
   return (
-    <Board items={toDoItems} id = "to-do-board" title="To do list"/>
+    <Board items={toDoItems} boardId = {Constants.TO_DO_BOARD_ID} title="To do list" droppableId = {Constants.TO_DO_BOARD_ID}/>
   );
 }
