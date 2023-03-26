@@ -12,10 +12,7 @@ export default function KabanBoard() {
     const [inProgressItems, setInProgressItems] = useState([])
 
     useEffect(()=>{
-        //setToDoItems([...dbToDoItems])
-        setInProgressItems([...dbToDoItems])
-
-
+        setToDoItems([...dbToDoItems])
     },[])
 
     const onDragEnd = (result) => {
@@ -62,8 +59,6 @@ export default function KabanBoard() {
                 <div id = "kaban-board">
                     <ToDoBoard toDoItems={toDoItems} droppableId = {Constants.TO_DO_BOARD_ID}/>
                     <InProgressBoard inProgressItems={inProgressItems} droppableId = {Constants.IN_PROGRESS_BOARD_ID}/>
-                    {/* <ToDoBoard toDoItems={toDoItems} />
-                    <InProgressBoard inProgressItems={inProgressItems}/> */}
                 </div>
         </DragDropContext>
     </>)
