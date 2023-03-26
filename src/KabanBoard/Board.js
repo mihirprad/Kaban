@@ -1,57 +1,41 @@
-import React, {useContext} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Board.css'
-import DragContext from './Store/draggable-context'
-export default function Board({items, id,title}){
-    let validDropTarget = false;
-    let dragCtx = useContext(DragContext);
 
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 
-    let dragoverEvent = (event) => {
-        event.preventDefault();
-        if (!validDropTarget) {
-          validDropTarget = true;
-          event.currentTarget.classList.add("hover");
-        }
-      }
-    
-      let dropEvent = (event) => {
-        if (!event.currentTarget.contains(dragCtx.draggedItem)) {
-          let dropTarget = event.currentTarget;
-          let boundingRect = dropTarget.getBoundingClientRect();
-          let offset = event.clientY - boundingRect.top;
-          let items = Array.from(dropTarget.querySelectorAll('.draggable'));
-      
-          let insertBeforeItem = null;
-          for (let i = 0; i < items.length; i++) {
-            let itemRect = items[i].getBoundingClientRect();
-            if (offset < (itemRect.top + itemRect.height / 2)) {
-              insertBeforeItem = items[i];
-              break;
-            }
-          }
-      
-          if (insertBeforeItem) {
-            dropTarget.insertBefore(dragCtx.draggedItem, insertBeforeItem);
-          } else {
-            dropTarget.appendChild(dragCtx.draggedItem);
-          }
-        }
-      
-        validDropTarget = false;
-        event.currentTarget.classList.remove("hover");
-      }
+export default function Board({ items, boardId, title }) {
+  const [boardItems, setBoardItems] = useState([]);
 
-    const dragLeaveEvent = (event) => {
-        if (validDropTarget) {
-          validDropTarget = false;
-          event.currentTarget.classList.remove("hover");
-        }
-    }
+  useEffect(() => {
+    if (items != undefined)
+      setBoardItems([...items]);
 
-    return(
-        <div id={id} className='drop-zone board' onDragOver={dragoverEvent} onDragLeave = {dragLeaveEvent} onDrop = {dropEvent}>
-            <h4 className='board-title'>{title}</h4>
-            {items}
-        </div>
-    )
+  }, [items]
+  )
+
+  return (
+    <div id={boardId} className='board'>
+      <h4 className='board-title'>{title}</h4>
+      <Droppable droppableId={boardId} >
+        {(provided, snapshot) => (
+          <div {...provided.droppableProps} ref={provided.innerRef} className="drop-zone">
+            {boardItems.map((item, index) => (
+              <Draggable key={item.id} draggableId={item.id} index={index}>
+                {(provided, snapshot) => (
+                  <div
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    {item.content}
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </div>
+  )
 }
