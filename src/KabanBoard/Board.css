@@ -1,9 +1,21 @@
 .board{
-    height: 100%;
-    border: 1px dashed black;
+    height: auto;
+    background-color: #f4f5f7;
+    border-radius: 8px;
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
 }
 
 .drop-zone{
+    height: 100%;
+    width: 100%;
+}
+
+.drop-zone-container{
+    padding:10px;
     height: 100%;
     width: 100%;
 }
