@@ -1,0 +1,14 @@
+#new-task-input{
+    height: 50px;
+    width: 100%;
+
+}
+
+#add-new-task-component{
+    grid-row: 1;
+    grid-column: 2;
+}
+
+#add-task-btn{
+    width: 20%;
+}
