@@ -9,6 +9,10 @@
     margin: 20px;
 }
 
+.to-do-item{
+    height: 100%;
+}
+
 .drop-zone{
     height: 100%;
     width: 100%;

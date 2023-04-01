@@ -11,6 +11,8 @@ export default function KabanBoard() {
     const [toDoItems,setToDoItems] = useState([]);
     const [inProgressItems, setInProgressItems] = useState([])
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedToDoItem, setSelectedToDoItem] = useState({content: null});
+
 
     const handleOpenModal = () => {
       setModalIsOpen(true);
@@ -25,6 +27,8 @@ export default function KabanBoard() {
       setModalIsOpen,
       handleOpenModal,
       handleCloseModal,
+      selectedToDoItem,
+      setSelectedToDoItem
     }
 
     useEffect(()=>{

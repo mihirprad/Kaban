@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Board.css'
-
+import ToDoModalContext from './Store/to-do-modal-context';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 export default function Board({ items, boardId, title }) {
@@ -17,12 +17,19 @@ export default function Board({ items, boardId, title }) {
     ...draggableStyle
   });
 
+  const modalCtx = useContext(ToDoModalContext);
   useEffect(() => {
     if (items != undefined)
       setBoardItems([...items]);
 
   }, [items]
   )
+
+  const showItemDesc = (event,item) => {
+    modalCtx.setSelectedToDoItem(item);
+    console.log(item)
+    modalCtx.handleOpenModal();
+  }
 
   return (
     <div id={boardId} className='board'>
@@ -46,7 +53,7 @@ export default function Board({ items, boardId, title }) {
                       )}
 
                     >
-                      <div className="to-do-item">
+                      <div className="to-do-item" onClick={(event) =>showItemDesc(event,item)}>
                         {item.content}
 
                       </div>
