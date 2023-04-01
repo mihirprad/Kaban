@@ -7,9 +7,9 @@ export default function Board({ items, boardId, title }) {
   const [boardItems, setBoardItems] = useState([]);
 
   const getItemStyle = (isDragging, draggableStyle) => ({
-    "background-color": "white",
+    "backgroundColor": "white",
     "height": "100px",
-    "margin-bottom": "10px",
+    "marginBottom": "10px",
     "padding": "10px",
     "border": "1px solid #e3e6ea",
 
