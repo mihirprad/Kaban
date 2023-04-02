@@ -1,0 +1,7 @@
+#kaban-board{
+    display: flex;
+    height: fit-content;
+    min-height: 50px;
+    grid-column: 2;
+    grid-row:2;
+}
