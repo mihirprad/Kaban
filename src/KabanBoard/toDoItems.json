@@ -1,15 +1,54 @@
-[{
-"id": "1",
-"content": "Buy groceries"
-},
-{
-"id": "2",
-"content": "Do laundry"
-},
-{
-"id": "3",
-"content": "Take out the trash"
-}
-]
+[
+    {
+      "id": "1",
+      "header": "Groceries",
+      "description": "Buy milk, eggs, bread, cheese, vegetables"
+    },
+    {
+      "id": "2",
+      "header": "Laundry",
+      "description": "Wash whites, colors, delicates, and towels"
+    },
+    {
+      "id": "3",
+      "header": "Trash",
+      "description": "Take out the trash and recycling"
+    },
+    {
+      "id": "4",
+      "header": "Bills",
+      "description": "Pay rent, electricity, gas, and water bills"
+    },
+    {
+      "id": "5",
+      "header": "Clean bathroom",
+      "description": "Scrub the toilet, sink, and shower"
+    },
+    {
+      "id": "6",
+      "header": "Exercise",
+      "description": "Go for a run or do a workout video"
+    },
+    {
+      "id": "7",
+      "header": "Call parents",
+      "description": "Catch up with mom and dad"
+    },
+    {
+      "id": "8",
+      "header": "Read book",
+      "description": "Spend 30 minutes reading a novel"
+    },
+    {
+      "id": "9",
+      "header": "Meal prep",
+      "description": "Cook a big batch of food for the week"
+    },
+    {
+      "id": "10",
+      "header": "Learn something new",
+      "description": "Watch a TED talk or read an article about a new topic"
+    }
+  ]
 
 

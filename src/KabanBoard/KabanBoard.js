@@ -5,18 +5,37 @@ import dbToDoItems from './toDoItems.json'
 import Constants from "./constants";
 import './KabanBoard.css';
 import { DragDropContext } from "react-beautiful-dnd";
-
-
+import ToDoModal from "./ToDoModal";
+import ToDoModalContext from "./Store/to-do-modal-context";
 export default function KabanBoard() {
     const [toDoItems,setToDoItems] = useState([]);
     const [inProgressItems, setInProgressItems] = useState([])
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedToDoItem, setSelectedToDoItem] = useState({content: null});
+
+
+    const handleOpenModal = () => {
+      setModalIsOpen(true);
+    };
+  
+    const handleCloseModal = () => {
+      setModalIsOpen(false);
+    };
+
+    const modalCtxState = {
+      modalIsOpen,
+      setModalIsOpen,
+      handleOpenModal,
+      handleCloseModal,
+      selectedToDoItem,
+      setSelectedToDoItem
+    }
 
     useEffect(()=>{
         setToDoItems([...dbToDoItems])
     },[])
 
     const onDragEnd = (result) => {
-        console.log(result)
         const { source, destination } = result;
         if (!destination) {
           return;
@@ -44,22 +63,23 @@ export default function KabanBoard() {
       };
 
       const getArrayById = (id) =>{
-        console.log(id)
         switch(id){
           case Constants.TO_DO_BOARD_ID:
             return [toDoItems, setToDoItems];
           case Constants.IN_PROGRESS_BOARD_ID:
-            console.log("here")
             return [inProgressItems,setInProgressItems];
         }
       }
 
     return (<>
         <DragDropContext onDragEnd={onDragEnd}>
-                <div id = "kaban-board">
-                    <ToDoBoard toDoItems={toDoItems} droppableId = {Constants.TO_DO_BOARD_ID}/>
-                    <InProgressBoard inProgressItems={inProgressItems} droppableId = {Constants.IN_PROGRESS_BOARD_ID}/>
-                </div>
+          <ToDoModalContext.Provider value={modalCtxState}>
+            <ToDoModal/>
+            <div id = "kaban-board">
+                <ToDoBoard toDoItems={toDoItems} droppableId = {Constants.TO_DO_BOARD_ID}/>
+                <InProgressBoard inProgressItems={inProgressItems} droppableId = {Constants.IN_PROGRESS_BOARD_ID}/>
+            </div>
+          </ToDoModalContext.Provider>
         </DragDropContext>
     </>)
 }
