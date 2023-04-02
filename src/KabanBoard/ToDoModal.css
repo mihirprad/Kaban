@@ -31,6 +31,13 @@
     font-size: large;
 }
 
+.desc-input-field{
+    height: 50px;
+    width: 80%;
+    display: block;
+    padding: 15px;
+}
+
 .close-button:hover{
     cursor: pointer;
 }
