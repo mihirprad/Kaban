@@ -54,7 +54,7 @@ export default function Board({ items, boardId, title }) {
 
                     >
                       <div className="to-do-item" onClick={(event) =>showItemDesc(event,item)}>
-                        {item.content}
+                        {item.header}
 
                       </div>
 

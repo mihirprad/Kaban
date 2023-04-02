@@ -25,7 +25,8 @@ export default function ToDoModal(){
     };
     return (    <>
     <Modal isOpen={modalContext.modalIsOpen} onRequestClose={modalContext.handleCloseModal}   style= {modalStyle}>
-          <h2>{modalContext.selectedToDoItem.content}</h2>
+          <h2>{modalContext.selectedToDoItem.header}</h2>
+          <p>{modalContext.selectedToDoItem.description}</p>
           <button onClick={modalContext.handleCloseModal}>Close Modal</button>
         </Modal>
         
