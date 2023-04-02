@@ -1,8 +1,36 @@
-.to-do-modal{
-    height: 10%;
-    width: 80%;
-    margin: auto;
-    opacity: 100%;
-    background-color: white;
-    border-color: white;
+#modal-details-section {
+    position: relative;
+}
+
+.modal-header{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.modal-description-header{
+    font-size: 14px;
+    font-weight: 600;
+    height: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.modal-description{
+    font-weight:  400;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.close-button{
+    border: 0px;
+    background-color: transparent;
+    color: rgb(95, 95, 95);
+    position: absolute;
+    right: 0px;
+    font-size: large;
+}
+
+.close-button:hover{
+    cursor: pointer;
 }
