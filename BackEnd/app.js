@@ -2,6 +2,7 @@ import express from 'express';
 import {sequelize,authenticateDatabase} from './models/database.js';
 import Task from './models/task.js';
 import Users from './models/users.js';
+import Boards from './models/boards.js';
 import router from './routes/routes.js';
 import cors from 'cors';
 const port = 3001;
