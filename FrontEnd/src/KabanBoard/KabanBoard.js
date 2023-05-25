@@ -35,6 +35,29 @@ export default function KabanBoard() {
         setToDoItems([...dbToDoItems])
     },[])
 
+    const fetchTasks = async () =>{
+      try {
+        let response = await fetch('http://localhost:3001/tasks');
+        if (response.ok) {
+          let data = await response.json();
+          // Process the fetched data
+          console.log(data);
+        } else {
+          throw new Error('Network response was not OK.');
+        }
+      } catch (error) {
+        // Handle any errors that occurred during the fetch
+        console.error('Error:', error);
+      }
+
+    }
+
+    useEffect(()=>{
+      fetchTasks();
+    }
+      
+      ,[]);
+
     const onDragEnd = (result) => {
         const { source, destination } = result;
         if (!destination) {
