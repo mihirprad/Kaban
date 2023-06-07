@@ -1,13 +1,13 @@
 import { sequelize } from "./database.js";
 import { DataTypes,Model } from "sequelize";
-import Users from "./users.js";
-class Boards extends Model{}
+import User from "./user.js";
+class Board extends Model{}
 
-Boards.init({
+Board.init({
     description: DataTypes.STRING,
     title: DataTypes.STRING,
 
 }, {sequelize, modelName:'Boards'});
-Boards.belongsTo(Users, { foreignKey: 'user_id' });
+Board.belongsTo(User, { foreignKey: 'user_id' });
 
-export default Boards;
+export default Board;
