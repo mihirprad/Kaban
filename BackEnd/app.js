@@ -1,9 +1,6 @@
 import express from 'express';
 import session from 'express-session';
 import {sequelize,authenticateDatabase} from './models/database.js';
-import Task from './models/task.js';
-import User from './models/user.js';
-import Board from './models/board.js';
 import router from './routes/routes.js';
 import cors from 'cors';
 const port = 3001;
@@ -17,8 +14,9 @@ app.use(session({
 
 authenticateDatabase();
 sequelize.sync();
+app.use(express.json());
 app.use(cors());
-app.use('/', router);
+app.use('/api', router);
 app.listen(port, ()=>{ console.log(`listening on port ${port}`);})
 
 // app.get('/',(req,res)=>{ res.send('hello')})

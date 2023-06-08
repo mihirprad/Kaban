@@ -1,19 +1,23 @@
-import User from "../models/user";
+import User from "../models/user.js";
 
-const login = (req,res) => {
-    const { username, password } = req.body;
+export const login = (req,res) => {
+    console.log(req.body);
 
-        // Check if the user credentials are valid
-    const user = getUserDetails(username);
+    // const { username, password } = req.body;
 
-    if (user == null || !isValidCredentials(user,password)){
+    //     // Check if the user credentials are valid
+    // const user = getUserDetails(username);
 
-    }
-    else{
-        // Set the user session or generate a JWT token
-        req.session.user = { username }; // Example of setting session data
-        req.session.userId = user.id;
-    }
+    // if (user == null || !isValidCredentials(user,password)){
+
+    // }
+    // else{
+    //     // Set the user session or generate a JWT token
+    //     req.session.user = { username }; // Example of setting session data
+    //     req.session.userId = user.id;
+    // }
+
+    res.json('hello');
 }
 
 
