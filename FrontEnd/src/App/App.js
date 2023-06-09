@@ -1,13 +1,19 @@
 import React, {useState} from "react"
-import KabanBoard from "../KabanBoard/KabanBoard"
-import AddNewTask from "../Backlog/AddNewTask"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from "./Home";
+import Login from "../Login/Login";
+
 import './App.css'
+
 export default function App(){
 
     return(
-            <div id="kaban-main-screen">
-                <AddNewTask />
-                <KabanBoard />
-            </div>
+        <Router>
+            <Routes>
+                <Route exact path="/home" element={<Home />} />
+                <Route exact path="/login" element={<Login />} />
+            </Routes>
+
+        </Router>
     )
 }
