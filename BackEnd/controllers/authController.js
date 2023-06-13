@@ -3,13 +3,12 @@ import User from "../models/user.js";
 export const login = (req,res) => {
     console.log(req.body);
 
-    // const { username, password } = req.body;
-
-    //     // Check if the user credentials are valid
-    // const user = getUserDetails(username);
+    const { username, password } = req.body;
+     // Check if the user credentials are valid
+    const user = getUserDetails(username);
 
     // if (user == null || !isValidCredentials(user,password)){
-
+    //     res.status(401).json({ error: 'Invalid credentials' });
     // }
     // else{
     //     // Set the user session or generate a JWT token
@@ -22,7 +21,7 @@ export const login = (req,res) => {
 
 
 async function getUserDetails(username){
-    const user = await User.findOne({where:{user:username}});
+    const user = await User.findOne({where:{username:username}});
     return user;
 }
 
